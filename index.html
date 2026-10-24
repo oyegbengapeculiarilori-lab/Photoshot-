@@ -3,597 +3,209 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="description"
-    content="Emmanuel Portrait offers portrait and birthday photography. Contact us to book your photoshoot.">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PrimeShot Studios — professional photography, portraits and events.">
   <meta name="theme-color" content="#101010">
-  <title>Emmanuel Portrait | Portrait & Birthday Photography</title>
-
+  <title>PrimeShot Studios | Photography</title>
   <style>
-    :root {
-      --gold: #d8b45a;
-      --dark: #101010;
-      --panel: #191919;
-      --light: #f7f4ec;
-      --muted: #c1bdb4;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
     body {
-
-      background-image: url("emmanuel1.jpg");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-
-      }
-
-    a {
-      color: inherit;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101010;
+      color: #fff;
+      line-height: 1.6;
     }
-
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 3px;
-    }
-
     header {
-      position: sticky;
-      top: 0;
-      z-index: 5;
+      padding: 18px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      padding: 18px 7%;
-      background: #101010;
-      border-bottom: 1px solid #333;
+      gap: 12px;
+      background: #181818;
+      position: sticky;
+      top: 0;
     }
-
-    .brand {
-      color: var(--gold);
-      font-size: 1.25rem;
-      font-weight: 800;
-      text-decoration: none;
-      letter-spacing: 1px;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-size: .95rem;
-    }
-
-    nav a:hover {
-      color: var(--gold);
-    }
-
+    .logo { color: #e8bd72; font-weight: bold; font-size: 21px; }
+    nav a { color: white; margin-left: 14px; text-decoration: none; }
     .hero {
       min-height: 75vh;
       display: grid;
       place-items: center;
       text-align: center;
-      padding: 70px 7%;
-      background:
-        linear-gradient(#0008, #000c),
-        <img src="emmanuel2.jpg" alt="Emmanuel Portrait photography">
-        center/cover;
+      padding: 50px 20px;
+      background: linear-gradient(#0009,#000b),
+        url("emmanuel1.jpg") center/cover no-repeat;
     }
-
-    .hero-content {
-      max-width: 780px;
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: .85rem;
-      font-weight: bold;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 7vw, 5rem);
-      line-height: 1.1;
-      margin: 18px 0;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: #eee;
-      margin-bottom: 28px;
-    }
-
+    .hero h1 { font-size: clamp(38px, 8vw, 68px); margin: 0; }
+    .hero p { font-size: 18px; }
+    .accent { color: #e8bd72; }
     .btn {
       display: inline-block;
-      border: 1px solid var(--gold);
-      background: var(--gold);
+      padding: 12px 22px;
+      background: #e8bd72;
       color: #111;
-      padding: 13px 22px;
+      border: 0;
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
       cursor: pointer;
     }
-
-    .btn:hover {
-      background: #f0d58d;
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--gold);
-      margin-left: 8px;
-    }
-
-    .btn-outline:hover {
-      color: #111;
-    }
-
-    section {
-      padding: 70px 7%;
-      scroll-margin-top: 95px;
-    }
-
-    .section-heading {
+    section { padding: 55px 7%; }
+    h2 { text-align: center; font-size: 30px; }
+    .about {
+      max-width: 850px;
+      margin: auto;
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 35px;
     }
-
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
-      margin-bottom: 12px;
+    .portrait {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #e8bd72;
     }
-
-    .gold {
-      color: var(--gold);
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .service {
-      background: var(--panel);
-      padding: 25px;
-      border: 1px solid #333;
-      border-radius: 10px;
-    }
-
-    .service h3 {
-      margin-bottom: 8px;
-      color: var(--gold);
-    }
-
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 18px;
     }
-
-    .photo {
-      background: var(--panel);
-      border-radius: 9px;
-      overflow: hidden;
-      border: 1px solid #333;
-    }
-
-    .photo img {
-      display: block;
+    .gallery img {
       width: 100%;
-      height: 290px;
+      height: 260px;
       object-fit: cover;
+      border-radius: 8px;
     }
-
-    .photo p {
-      padding: 12px;
-      color: var(--muted);
-    }
-
-    .booking-layout {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 30px;
-      align-items: start;
-    }
-
-    .booking-card {
-      background: var(--panel);
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 25px;
-    }
-
-    form {
-      display: grid;
-      gap: 15px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
+    .booking { background: #1a1a1a; }
+    form { max-width: 520px; margin: auto; }
     input, select, textarea {
+      display: block;
       width: 100%;
-      padding: 12px;
+      padding: 13px;
+      margin: 12px 0;
       border: 1px solid #555;
       border-radius: 5px;
-      background: #101010;
+      background: #252525;
       color: white;
       font: inherit;
     }
-
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    .notice {
-      font-size: .9rem;
-      color: var(--muted);
-      margin: 12px 0;
-    }
-
-    #form-status {
-      color: var(--gold);
-      overflow-wrap: anywhere;
-    }
-
-    .contact-links {
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .contact-links a {
-      color: var(--gold);
-      overflow-wrap: anywhere;
-    }
-
-    footer {
-      padding: 25px 7%;
-      text-align: center;
-      border-top: 1px solid #333;
-      color: var(--muted);
-    }
-
-    @media (max-width: 500px) {
-      header {
-        padding: 15px 5%;
-      }
-
-      nav {
-        gap: 12px;
-      }
-
-      section {
-        padding: 50px 5%;
-      }
-
-      .btn-outline {
-        margin: 12px 0 0;
-      }
+    footer { text-align: center; padding: 25px; color: #bbb; }
+    a:focus-visible, button:focus-visible, input:focus-visible,
+    select:focus-visible, textarea:focus-visible {
+      outline: 2px solid #e8bd72;
+      outline-offset: 3px;
     }
   </style>
 </head>
-
 <body>
   <header>
-    <a class="brand" href="#home">EMMANUEL PORTRAIT</a>
-
+    <div class="logo">PrimeShot Studios</div>
     <nav aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
+      <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
       <a href="#booking">Book</a>
-      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <p class="eyebrow">Portraits • Birthday Memories</p>
-        <h1>Every Face Has a Story.</h1>
-        <p>
-          Beautiful portraits. Unforgettable birthdays.
-          Let Emmanuel Portrait capture your special moments.
-        </p>
-        <a class="btn" href="#gallery">Explore Our Work</a>
-        <a class="btn btn-outline"
-           href="https://wa.me/2349151982032"
-           target="_blank" rel="noopener noreferrer">
-          Book on WhatsApp
-        </a>
+    <section class="hero">
+      <div>
+        <p class="accent">CAPTURING YOUR BEST MOMENTS</p>
+        <h1>Every Picture<br> Tells a Story.</h1>
+        <p>Professional portraits, events and creative photography.</p>
+        <a class="btn" href="#booking">Book a Session</a>
       </div>
     </section>
 
-    <section id="services">
-      <div class="section-heading">
-        <p class="eyebrow">What We Do</p>
-        <h2>Photography <span class="gold">Services</span></h2>
-        <p class="muted">
-          Professional photography for moments worth remembering.
-        </p>
-      </div>
-
-      <div class="services">
-        <article class="service">
-          <h3>Portrait Photography</h3>
-          <p class="muted">
-            Personal portraits that express your personality,
-            confidence and style.
-          </p>
-        </article>
-
-        <article class="service">
-          <h3>Birthday Photography</h3>
-          <p class="muted">
-            Preserve your birthday celebrations and special
-            memories in beautiful photographs.
-          </p>
-        </article>
+    <section id="about">
+      <div class="about">
+        <h2>Meet the Photographer</h2>
+        <img class="portrait" src="emmanuel-portrait.jpg"
+          alt="Portrait of Emmanuel"
+          onerror="this.style.display='none'">
+        <p>Welcome to PrimeShot Studios, where creativity meets
+          unforgettable memories. We help you preserve life's
+          important moments through beautiful photography.</p>
+        <p class="accent">Creative vision. Beautiful memories.</p>
       </div>
     </section>
 
     <section id="gallery">
-      <div class="section-heading">
-        <p class="eyebrow">Selected Moments</p>
-        <h2>Our <span class="gold">Gallery</span></h2>
-        <p class="muted">
-          Replace these sample images with photographs
-          owned or authorized for use by Emmanuel Portrait.
-        </p>
-      </div>
-
+      <h2>Our <span class="accent">Gallery</span></h2>
       <div class="gallery">
-        <article class="photo">
-          <img
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
-            alt="Sample portrait photograph"
-            loading="lazy">
-          <p>Portrait Collection</p>
-        </article>
-
-        <article class="photo">
-          <img
-            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
-            alt="Sample celebration photograph"
-            loading="lazy">
-          <p>Celebration Memories</p>
-        </article>
-
-        <article class="photo">
-          <img
-            src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
-            alt="Sample studio-style portrait"
-            loading="lazy">
-          <p>Portrait Stories</p>
-        </article>
+        <img src="emmanuel2.jpg" alt="Photography portfolio image">
+        <img src="emmanuel1.jpg" alt="Studio background photograph">
       </div>
     </section>
 
-    <section id="booking">
-      <div class="section-heading">
-        <p class="eyebrow">Let's Plan Your Shoot</p>
-        <h2>Book a <span class="gold">Session</span></h2>
-        <p class="muted">
-          Fill in the details below. Your booking request will
-          open in WhatsApp for you to send to the photographer.
-        </p>
-      </div>
+    <section id="booking" class="booking">
+      <h2>Book a <span class="accent">Session</span></h2>
+      <p style="text-align:center">
+        Send your booking details to PrimeShot Studios.
+      </p>
+      <form id="bookingForm">
+        <label for="name">Your name</label>
+        <input id="name" name="name" required maxlength="100"
+          autocomplete="name">
 
-      <div class="booking-layout">
-        <div class="booking-card">
-          <form id="booking-form">
-            <div>
-              <label for="customer-name">Your name</label>
-              <input id="customer-name" name="customerName"
-                type="text" maxlength="80" required
-                autocomplete="name">
-            </div>
+        <label for="email">Your email</label>
+        <input id="email" name="email" type="email" required
+          maxlength="150" autocomplete="email">
 
-            <div>
-              <label for="customer-phone">Your phone number</label>
-              <input id="customer-phone" name="customerPhone"
-                type="tel" maxlength="25" required
-                autocomplete="tel">
-            </div>
+        <label for="service">Photography service</label>
+        <select id="service" name="service" required>
+          <option value="">Choose a service</option>
+          <option>Portrait photography</option>
+          <option>Birthday photography</option>
+          <option>Wedding photography</option>
+          <option>Event photography</option>
+          <option>Other</option>
+        </select>
 
-            <div>
-              <label for="service">Photography service</label>
-              <select id="service" name="service" required>
-                <option value="">Choose a service</option>
-                <option value="Portrait photography">
-                  Portrait photography
-                </option>
-                <option value="Birthday photography">
-                  Birthday photography
-                </option>
-              </select>
-            </div>
+        <label for="date">Preferred date</label>
+        <input id="date" name="date" type="date" required>
 
-            <div>
-              <label for="shoot-date">Preferred date</label>
-              <input id="shoot-date" name="shootDate"
-                type="date" required>
-            </div>
+        <label for="message">Additional details</label>
+        <textarea id="message" name="message" rows="4"
+          maxlength="1000" placeholder="Tell us what you need"></textarea>
 
-            <div>
-              <label for="message">Additional details</label>
-              <textarea id="message" name="message"
-                maxlength="500"
-                placeholder="Tell us about your photoshoot"></textarea>
-            </div>
-
-            <button class="btn" type="submit">
-              Continue to WhatsApp
-            </button>
-
-            <p id="form-status" role="status" aria-live="polite"></p>
-          </form>
-
-          <p class="notice">
-            No booking is confirmed until the photographer
-            responds. Please check your message before sending.
-          </p>
-        </div>
-
-        <div class="booking-card">
-          <h3 class="gold">Prefer WhatsApp?</h3>
-          <p class="muted">
-            Contact Emmanuel Portrait directly to ask about
-            prices, availability and your preferred package.
-          </p>
-
-          <p style="margin-top:20px">
-            <a class="btn"
-               href="https://wa.me/2349151982032"
-               target="_blank" rel="noopener noreferrer">
-              Chat on WhatsApp
-            </a>
-          </p>
-
-          <p class="notice">
-            Phone: 0915 198 2032
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="section-heading">
-        <p class="eyebrow">Get in Touch</p>
-        <h2>Contact <span class="gold">Us</span></h2>
-        <p class="muted">
-          Ready to capture your next special moment?
-          Get in touch with Emmanuel Portrait.
-        </p>
-
-        <div class="contact-links">
-          <p>Phone: <a href="tel:+2349151982032">
-            +234 915 198 2032</a></p>
-
-          <p>WhatsApp:
-            <a href="https://wa.me/2349151982032"
-               target="_blank" rel="noopener noreferrer">
-              Message Emmanuel Portrait</a>
-          </p>
-
-          <p>Social media: Emmanuel Portrait</p>
-        </div>
-
-        <p class="notice">
-          Add the owner's verified social media profile link
-          and business email when they are available.
-        </p>
-      </div>
+        <button class="btn" type="submit">Prepare Booking Email</button>
+      </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; <span id="year">2026</span>
-      Emmanuel Portrait. All rights reserved.</p>
-    <p>Photography that keeps your memories alive.</p>
+    <p>Contact: <a href="mailto:Yusuftoluwanimi@gmail.com"
+      style="color:#e8bd72">Yusuftoluwanimi@gmail.com</a></p>
+    <p><a href="tel:09151982032" style="color:#e8bd72">
+      0915 198 2032</a></p>
+    <p>© <span id="year"></span> PrimeShot Studios.</p>
   </footer>
 
   <script>
-    "use strict";
-
-    const bookingForm = document.getElementById("booking-form");
-    const statusMessage = document.getElementById("form-status");
-    const dateInput = document.getElementById("shoot-date");
-
-    // Prevent selecting a date in the past.
-    const today = new Date();
-    const localToday = [
-      today.getFullYear(),
-      String(today.getMonth() + 1).padStart(2, "0"),
-      String(today.getDate()).padStart(2, "0")
-    ].join("-");
-
-    dateInput.min = localToday;
-
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    bookingForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      if (!bookingForm.reportValidity()) {
-        return;
+    document.getElementById("bookingForm").addEventListener(
+      "submit", function (event) {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const data = new FormData(form);
+        const subject = encodeURIComponent(
+          "PrimeShot Studios Booking Request"
+        );
+        const body = encodeURIComponent(
+          "Name: " + data.get("name") +
+          "\nEmail: " + data.get("email") +
+          "\nService: " + data.get("service") +
+          "\nPreferred date: " + data.get("date") +
+          "\nDetails: " + data.get("message")
+        );
+        window.location.href =
+          "mailto:Yusuftoluwanimi@gmail.com?subject=" +
+          subject + "&body=" + body;
       }
-
-      const customerName =
-        document.getElementById("customer-name").value.trim();
-
-      const customerPhone =
-        document.getElementById("customer-phone").value.trim();
-
-      const service =
-        document.getElementById("service").value;
-
-      const shootDate =
-        document.getElementById("shoot-date").value;
-
-      const message =
-        document.getElementById("message").value.trim();
-
-      if (!customerName || !customerPhone || !service || !shootDate) {
-        statusMessage.textContent =
-          "Please complete all required fields.";
-        return;
-      }
-
-      // Encode user input before placing it in a WhatsApp URL.
-      const bookingText = [
-        "Hello Emmanuel Portrait, I would like to make a booking.",
-        "Name: " + customerName,
-        "Phone: " + customerPhone,
-        "Service: " + service,
-        "Preferred date: " + shootDate,
-        "Additional details: " + (message || "None")
-      ].join("\n");
-
-      const whatsappURL =
-        "https://wa.me/2349151982032?text=" +
-        encodeURIComponent(bookingText);
-
-      statusMessage.textContent =
-        "WhatsApp will open with your booking request. Review it and press Send.";
-
-      window.open(whatsappURL, "_blank", "noopener,noreferrer");
-    });
+    );
   </script>
 </body>
 </html>
