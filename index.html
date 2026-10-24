@@ -5,24 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Peculiar Photography | Creative Photography</title>
   <meta name="description"
-    content="Explore professional portraits, weddings, events and creative photography. Contact us to book a session.">
+    content="Emmanuel Portrait offers portrait and birthday photography. Contact us to book your photoshoot.">
 
   <meta name="theme-color" content="#101010">
+  <title>Emmanuel Portrait | Portrait & Birthday Photography</title>
 
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #101010;
-      --panel: #1b1b1b;
-      --text: #f5f5f5;
-      --muted: #bdbdbd;
-      --gold: #d9b46b;
+      --gold: #d8b45a;
+      --dark: #101010;
+      --panel: #191919;
+      --light: #f7f4ec;
+      --muted: #c1bdb4;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -30,10 +31,9 @@
     }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--dark);
+      color: var(--light);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
     }
 
@@ -42,229 +42,264 @@
     }
 
     a:focus-visible,
-    button:focus-visible {
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
       outline: 3px solid var(--gold);
-      outline-offset: 4px;
-    }
-
-    .container {
-      width: min(1100px, 92%);
-      margin: auto;
+      outline-offset: 3px;
     }
 
     header {
-      background: #101010;
-      border-bottom: 1px solid #303030;
       position: sticky;
       top: 0;
-      z-index: 10;
-    }
-
-    .nav {
-      min-height: 72px;
+      z-index: 5;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 18px 7%;
+      background: #101010;
+      border-bottom: 1px solid #333;
     }
 
-    .logo {
+    .brand {
       color: var(--gold);
-      font-size: 20px;
-      font-weight: bold;
+      font-size: 1.25rem;
+      font-weight: 800;
       text-decoration: none;
+      letter-spacing: 1px;
     }
 
     nav {
       display: flex;
-      gap: 22px;
-      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     nav a {
       text-decoration: none;
+      font-size: .95rem;
     }
 
     nav a:hover {
       color: var(--gold);
     }
 
-    .menu-toggle {
-      display: none;
-      background: var(--panel);
-      border: 1px solid #444;
-      color: white;
-      padding: 10px;
-      border-radius: 6px;
-    }
-
     .hero {
-      min-height: 470px;
+      min-height: 75vh;
       display: grid;
-      align-items: center;
+      place-items: center;
+      text-align: center;
+      padding: 70px 7%;
       background:
-        linear-gradient(90deg, #101010 8%,
-        rgba(16,16,16,.82) 45%, rgba(16,16,16,.2)),
-        url("https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1600&q=85")
+        linear-gradient(#0008, #000c),
+        url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&q=85")
         center/cover;
     }
 
     .hero-content {
-      max-width: 620px;
-      padding: 80px 0;
+      max-width: 780px;
     }
 
     .eyebrow {
       color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 3px;
-      font-size: 13px;
+      font-size: .85rem;
+      font-weight: bold;
     }
 
     h1 {
-      font-size: clamp(38px, 7vw, 68px);
-      line-height: 1.08;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.1;
       margin: 18px 0;
     }
 
     .hero p {
-      color: #ddd;
-      max-width: 480px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 13px 22px;
-      margin-top: 16px;
-      background: var(--gold);
-      color: #17120a;
-      font-weight: bold;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    section {
-      padding: 70px 0;
-    }
-
-    .section-heading {
+      font-size: 1.1rem;
+      color: #eee;
       margin-bottom: 28px;
     }
 
-    .section-heading h2 {
-      font-size: clamp(27px, 4vw, 38px);
-      margin-bottom: 6px;
+    .btn {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #111;
+      padding: 13px 22px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
     }
 
-    .section-heading p,
-    .about p {
+    .btn:hover {
+      background: #f0d58d;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      margin-left: 8px;
+    }
+
+    .btn-outline:hover {
+      color: #111;
+    }
+
+    section {
+      padding: 70px 7%;
+      scroll-margin-top: 95px;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 35px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      margin-bottom: 12px;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .muted {
       color: var(--muted);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .service {
+      background: var(--panel);
+      padding: 25px;
+      border: 1px solid #333;
+      border-radius: 10px;
+    }
+
+    .service h3 {
+      margin-bottom: 8px;
+      color: var(--gold);
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
     }
 
     .photo {
       background: var(--panel);
-      border-radius: 8px;
+      border-radius: 9px;
       overflow: hidden;
+      border: 1px solid #333;
     }
 
     .photo img {
       display: block;
       width: 100%;
-      height: 260px;
+      height: 290px;
       object-fit: cover;
-      transition: transform .3s ease;
     }
 
-    .photo:hover img {
-      transform: scale(1.04);
+    .photo p {
+      padding: 12px;
+      color: var(--muted);
     }
 
-    .photo h3 {
-      font-size: 16px;
-      padding: 0 14px;
-    }
-
-    .services {
+    .booking-layout {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+      align-items: start;
     }
 
-    .service {
-      padding: 22px;
+    .booking-card {
       background: var(--panel);
-      border: 1px solid #303030;
-      border-radius: 8px;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 25px;
     }
 
-    .service h3 {
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background: #101010;
+      color: white;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .notice {
+      font-size: .9rem;
+      color: var(--muted);
+      margin: 12px 0;
+    }
+
+    #form-status {
       color: var(--gold);
+      overflow-wrap: anywhere;
     }
 
-    .about {
-      max-width: 720px;
+    .contact-links {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
     }
 
-    .contact {
-      background: #191919;
-      text-align: center;
+    .contact-links a {
+      color: var(--gold);
+      overflow-wrap: anywhere;
     }
 
     footer {
+      padding: 25px 7%;
       text-align: center;
-      padding: 24px;
+      border-top: 1px solid #333;
       color: var(--muted);
-      border-top: 1px solid #303030;
     }
 
-    @media (max-width: 700px) {
-      .menu-toggle {
-        display: block;
+    @media (max-width: 500px) {
+      header {
+        padding: 15px 5%;
       }
 
       nav {
-        display: none;
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-        background: #171717;
-        padding: 20px 4%;
-        flex-direction: column;
-        align-items: flex-start;
+        gap: 12px;
       }
 
-      nav.open {
-        display: flex;
+      section {
+        padding: 50px 5%;
       }
 
-      .gallery,
-      .services {
-        grid-template-columns: 1fr;
-      }
-
-      .photo img {
-        height: 280px;
-      }
-
-      .hero {
-        min-height: 420px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *, *::before, *::after {
-        transition-duration: .01ms !important;
+      .btn-outline {
+        margin: 12px 0 0;
       }
     }
   </style>
@@ -272,178 +307,291 @@
 
 <body>
   <header>
-    <div class="container nav">
-      <a class="logo" href="#home">PECULIAR PHOTO</a>
+    <a class="brand" href="#home">EMMANUEL PORTRAIT</a>
 
-      <button class="menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="main-nav">
-        Menu
-      </button>
-
-      <nav id="main-nav" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#booking">Book</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="container hero-content">
-        <span class="eyebrow">Photography & Visual Stories</span>
-        <h1>Every picture tells a story.</h1>
+      <div class="hero-content">
+        <p class="eyebrow">Portraits • Birthday Memories</p>
+        <h1>Every Face Has a Story.</h1>
         <p>
-          Capturing beautiful moments, real emotions
-          and memories that last forever.
+          Beautiful portraits. Unforgettable birthdays.
+          Let Emmanuel Portrait capture your special moments.
         </p>
-        <a class="button" href="#gallery">Explore Our Work</a>
-      </div>
-    </section>
-
-    <section id="gallery">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Our Portfolio</h2>
-          <p>A selection of our favourite photographs.</p>
-        </div>
-
-        <div class="gallery">
-          <article class="photo">
-            <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
-              alt="Portrait photography"
-              loading="lazy">
-            <h3>Portraits</h3>
-          </article>
-
-          <article class="photo">
-            <img
-              src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
-              alt="Wedding celebration photography"
-              loading="lazy">
-            <h3>Weddings</h3>
-          </article>
-
-          <article class="photo">
-            <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
-              alt="Outdoor landscape photography"
-              loading="lazy">
-            <h3>Nature</h3>
-          </article>
-
-          <article class="photo">
-            <img
-              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80"
-              alt="Camera and photography equipment"
-              loading="lazy">
-            <h3>Creative Work</h3>
-          </article>
-
-          <article class="photo">
-            <img
-              src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
-              alt="Event photography"
-              loading="lazy">
-            <h3>Events</h3>
-          </article>
-
-          <article class="photo">
-            <img
-              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80"
-              alt="Fashion photography"
-              loading="lazy">
-            <h3>Fashion</h3>
-          </article>
-        </div>
+        <a class="btn" href="#gallery">Explore Our Work</a>
+        <a class="btn btn-outline"
+           href="https://wa.me/2349151982032"
+           target="_blank" rel="noopener noreferrer">
+          Book on WhatsApp
+        </a>
       </div>
     </section>
 
     <section id="services">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Our Services</h2>
-          <p>Professional photography for your special moments.</p>
-        </div>
-
-        <div class="services">
-          <article class="service">
-            <h3>Portraits</h3>
-            <p>Personal portraits, birthdays and studio sessions.</p>
-          </article>
-
-          <article class="service">
-            <h3>Events</h3>
-            <p>Weddings, celebrations and memorable occasions.</p>
-          </article>
-
-          <article class="service">
-            <h3>Commercial</h3>
-            <p>Creative images for brands, products and businesses.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container about">
-        <div class="section-heading">
-          <h2>About Us</h2>
-        </div>
-        <p>
-          We turn moments into lasting memories through
-          thoughtful composition, creativity and attention
-          to detail. Replace this text with your real story,
-          location and photography experience.
+      <div class="section-heading">
+        <p class="eyebrow">What We Do</p>
+        <h2>Photography <span class="gold">Services</span></h2>
+        <p class="muted">
+          Professional photography for moments worth remembering.
         </p>
       </div>
+
+      <div class="services">
+        <article class="service">
+          <h3>Portrait Photography</h3>
+          <p class="muted">
+            Personal portraits that express your personality,
+            confidence and style.
+          </p>
+        </article>
+
+        <article class="service">
+          <h3>Birthday Photography</h3>
+          <p class="muted">
+            Preserve your birthday celebrations and special
+            memories in beautiful photographs.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Let's Create Something Beautiful</h2>
-          <p>Contact us to discuss your next photography session.</p>
+    <section id="gallery">
+      <div class="section-heading">
+        <p class="eyebrow">Selected Moments</p>
+        <h2>Our <span class="gold">Gallery</span></h2>
+        <p class="muted">
+          Replace these sample images with photographs
+          owned or authorized for use by Emmanuel Portrait.
+        </p>
+      </div>
+
+      <div class="gallery">
+        <article class="photo">
+          <img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
+            alt="Sample portrait photograph"
+            loading="lazy">
+          <p>Portrait Collection</p>
+        </article>
+
+        <article class="photo">
+          <img
+            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
+            alt="Sample celebration photograph"
+            loading="lazy">
+          <p>Celebration Memories</p>
+        </article>
+
+        <article class="photo">
+          <img
+            src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
+            alt="Sample studio-style portrait"
+            loading="lazy">
+          <p>Portrait Stories</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="section-heading">
+        <p class="eyebrow">Let's Plan Your Shoot</p>
+        <h2>Book a <span class="gold">Session</span></h2>
+        <p class="muted">
+          Fill in the details below. Your booking request will
+          open in WhatsApp for you to send to the photographer.
+        </p>
+      </div>
+
+      <div class="booking-layout">
+        <div class="booking-card">
+          <form id="booking-form">
+            <div>
+              <label for="customer-name">Your name</label>
+              <input id="customer-name" name="customerName"
+                type="text" maxlength="80" required
+                autocomplete="name">
+            </div>
+
+            <div>
+              <label for="customer-phone">Your phone number</label>
+              <input id="customer-phone" name="customerPhone"
+                type="tel" maxlength="25" required
+                autocomplete="tel">
+            </div>
+
+            <div>
+              <label for="service">Photography service</label>
+              <select id="service" name="service" required>
+                <option value="">Choose a service</option>
+                <option value="Portrait photography">
+                  Portrait photography
+                </option>
+                <option value="Birthday photography">
+                  Birthday photography
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <label for="shoot-date">Preferred date</label>
+              <input id="shoot-date" name="shootDate"
+                type="date" required>
+            </div>
+
+            <div>
+              <label for="message">Additional details</label>
+              <textarea id="message" name="message"
+                maxlength="500"
+                placeholder="Tell us about your photoshoot"></textarea>
+            </div>
+
+            <button class="btn" type="submit">
+              Continue to WhatsApp
+            </button>
+
+            <p id="form-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <p class="notice">
+            No booking is confirmed until the photographer
+            responds. Please check your message before sending.
+          </p>
         </div>
 
-        <!-- Replace this with your real contact email. -->
-        <a class="button"
-          href="mailto:YOUR_EMAIL@example.com?subject=Photography%20Booking">
-          Book a Session
-        </a>
+        <div class="booking-card">
+          <h3 class="gold">Prefer WhatsApp?</h3>
+          <p class="muted">
+            Contact Emmanuel Portrait directly to ask about
+            prices, availability and your preferred package.
+          </p>
+
+          <p style="margin-top:20px">
+            <a class="btn"
+               href="https://wa.me/2349151982032"
+               target="_blank" rel="noopener noreferrer">
+              Chat on WhatsApp
+            </a>
+          </p>
+
+          <p class="notice">
+            Phone: 0915 198 2032
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-heading">
+        <p class="eyebrow">Get in Touch</p>
+        <h2>Contact <span class="gold">Us</span></h2>
+        <p class="muted">
+          Ready to capture your next special moment?
+          Get in touch with Emmanuel Portrait.
+        </p>
+
+        <div class="contact-links">
+          <p>Phone: <a href="tel:+2349151982032">
+            +234 915 198 2032</a></p>
+
+          <p>WhatsApp:
+            <a href="https://wa.me/2349151982032"
+               target="_blank" rel="noopener noreferrer">
+              Message Emmanuel Portrait</a>
+          </p>
+
+          <p>Social media: Emmanuel Portrait</p>
+        </div>
+
+        <p class="notice">
+          Add the owner's verified social media profile link
+          and business email when they are available.
+        </p>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Peculiar Photo. All rights reserved.</p>
+    <p>&copy; <span id="year">2026</span>
+      Emmanuel Portrait. All rights reserved.</p>
+    <p>Photography that keeps your memories alive.</p>
   </footer>
 
   <script>
     "use strict";
 
-    const menuButton = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector("#main-nav");
+    const bookingForm = document.getElementById("booking-form");
+    const statusMessage = document.getElementById("form-status");
+    const dateInput = document.getElementById("shoot-date");
 
-    menuButton.addEventListener("click", () => {
-      const isOpen = navigation.classList.toggle("open");
-      menuButton.setAttribute("aria-expanded", String(isOpen));
-    });
+    // Prevent selecting a date in the past.
+    const today = new Date();
+    const localToday = [
+      today.getFullYear(),
+      String(today.getMonth() + 1).padStart(2, "0"),
+      String(today.getDate()).padStart(2, "0")
+    ].join("-");
 
-    navigation.addEventListener("click", (event) => {
-      if (event.target.closest("a")) {
-        navigation.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
+    dateInput.min = localToday;
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    bookingForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!bookingForm.reportValidity()) {
+        return;
       }
-    });
 
-    document.querySelector("#year").textContent =
-      String(new Date().getFullYear());
+      const customerName =
+        document.getElementById("customer-name").value.trim();
+
+      const customerPhone =
+        document.getElementById("customer-phone").value.trim();
+
+      const service =
+        document.getElementById("service").value;
+
+      const shootDate =
+        document.getElementById("shoot-date").value;
+
+      const message =
+        document.getElementById("message").value.trim();
+
+      if (!customerName || !customerPhone || !service || !shootDate) {
+        statusMessage.textContent =
+          "Please complete all required fields.";
+        return;
+      }
+
+      // Encode user input before placing it in a WhatsApp URL.
+      const bookingText = [
+        "Hello Emmanuel Portrait, I would like to make a booking.",
+        "Name: " + customerName,
+        "Phone: " + customerPhone,
+        "Service: " + service,
+        "Preferred date: " + shootDate,
+        "Additional details: " + (message || "None")
+      ].join("\n");
+
+      const whatsappURL =
+        "https://wa.me/2349151982032?text=" +
+        encodeURIComponent(bookingText);
+
+      statusMessage.textContent =
+        "WhatsApp will open with your booking request. Review it and press Send.";
+
+      window.open(whatsappURL, "_blank", "noopener,noreferrer");
+    });
   </script>
 </body>
 </html>
