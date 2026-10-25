@@ -95,6 +95,49 @@
       outline: 2px solid #e8bd72;
       outline-offset: 3px;
     }
+/* Sliding Gallery */
+.gallery-section {
+  padding: 40px 16px;
+  text-align: center;
+}
+
+.slider {
+  position: relative;
+  max-width: 650px;
+  margin: 20px auto;
+  background: #111;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#galleryImage {
+  display: block;
+  width: 100%;
+  height: min(70vh, 600px);
+  object-fit: contain;
+}
+
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.slide-btn.prev { left: 10px; }
+.slide-btn.next { right: 10px; }
+
+.slide-count {
+  color: #d8b36a;
+  margin-top: 12px;
+}
   </style>
 </head>
 <body>
@@ -130,56 +173,26 @@
       </div>
     </section>
 
-    <section id="gallery">
-      <h2>Our <span class="accent">Gallery</span></h2>
-      <div class="gallery">
-        <img src="emmanuel2.jpg" alt="Photography portfolio image">
-        <img src="emmanuel1.jpg" alt="Studio background photograph">
+    
+<section id="gallery" class="gallery-section">
+  <h2>Our <span class="accent">Gallery</span></h2>
 
-<figure class="photo">
-  <img src="emmanuel1.webp" alt="Emmanuel Portrait 1" loading="lazy">
-  <figcaption class="photo-caption">Portrait 1</figcaption>
-</figure>
-<figure class="photo">
-  <img src="emmanuel2.webp" alt="Emmanuel Portrait photo 2" loading="lazy">
-  <figcaption class="photo-caption">Portrait 2</figcaption>
-</figure>
-<figure class="photo">
-  <img src="emmanuel3.webp" alt="Emmanuel Portrait photo 3" loading="lazy">
-  <figcaption class="photo-caption">Portrait 3</figcaption>
-</figure>
-<figure class="photo">
-  <img src="emmanuel4.webp" alt="Emmanuel Portrait photo 4" loading="lazy">
-  <figcaption class="photo-caption">Portrait 4</figcaption>
-</figure>
-<figure class="photo">
-  <img src="emmanuel5.webp" alt="Emmanuel Portrait photo 5" loading="lazy">
-  <figcaption class="photo-caption">Portrait 5</figcaption>
-</figure>
-<figure class="photo">
-  <img src="emmanuel6.webp" alt="Emmanuel Portrait photo 6" loading="lazy">
-  <figcaption class="photo-caption">Portrait 6</figcaption>
-</figure>
-<figure class="photo">
-  <img src="emmanuel7.webp" alt="Emmanuel Portrait photo 7" loading="lazy">
-  <figfigcaption class="photo-caption">Portrait 7</figfigcaption>
-</figure>
-<figure class="photo">
-  <img src="emmanuel8.webp" alt="Emmanuel Portrait photo 8" loading="lazy">
-  <figcaption class="photo-caption">Portrait 8</figcaption>
-</figure>
-<figure class="photo">
-  <img src="emmanuel9.webp" alt="Emmanuel Portrait photo 9" loading="lazy">
-  <figcaption class="photo-caption">Portrait 9</figcaption>
-</figure>
-<figure class="photo">
-  <img src="emmanuel10.webp" alt="Emmanuel Portrait photo 10" loading="lazy">
-  <figcaption class="photo-caption">Portrait 10</figcaption>
-</figure>
-<figure class="photo">
-  <img src="emmanuel11.webp" alt="Emmanuel Portrait photo 11" loading="lazy">
-  <figcaption class="photo-caption">Portrait 11</figcaption>
-</figure>
+  <div class="slider">
+    <button class="slide-btn prev" type="button"
+      aria-label="Previous photo">&#10094;</button>
+
+    <img id="galleryImage"
+      src="emmanuel1.webp"
+      alt="Emmanuel Portrait photography"
+      loading="lazy">
+
+    <button class="slide-btn next" type="button"
+      aria-label="Next photo">&#10095;</button>
+  </div>
+
+  <p id="slideCount" class="slide-count">1 / 11</p>
+</section>
+
 
       </div>
     </section>
@@ -254,6 +267,61 @@
     );
   </script>
 </body>
+
+<script>
+(function () {
+  const photos = [
+    "emmanuel1.webp",
+    "emmanuel2.webp",
+    "emmanuel3.webp",
+    "emmanuel4.webp",
+    "emmanuel5.webp",
+    "emmanuel6.webp",
+    "emmanuel7.webp",
+    "emmanuel8.webp",
+    "emmanuel9.webp",
+    "emmanuel10.webp",
+    "emmanuel11.webp"
+  ];
+
+  const image = document.getElementById("galleryImage");
+  const counter = document.getElementById("slideCount");
+  const next = document.querySelector(".slide-btn.next");
+  const prev = document.querySelector(".slide-btn.prev");
+
+  if (!image || !counter || !next || !prev) return;
+
+  let current = 0;
+
+  function showPhoto(index) {
+    current = (index + photos.length) % photos.length;
+    image.src = photos[current];
+    counter.textContent =
+      (current + 1) + " / " + photos.length;
+  }
+
+  next.addEventListener("click", () => showPhoto(current + 1));
+  prev.addEventListener("click", () => showPhoto(current - 1));
+
+  let startX = 0;
+
+  image.addEventListener("touchstart", event => {
+    startX = event.changedTouches[0].screenX;
+  }, { passive: true });
+
+  image.addEventListener("touchend", event => {
+    const distance =
+      event.changedTouches[0].screenX - startX;
+
+    if (Math.abs(distance) > 40) {
+      showPhoto(current + (distance < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+
+  showPhoto(0);
+})();
+</script>
+
 </html>
 <a href="https://wa.me/2349151982032"
    target="_blank"
